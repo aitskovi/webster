@@ -43,4 +43,18 @@ $(function () {
         var keys = webster.keys(dict);
         deepEqual(keys, ['a', 'c']);
     })
+
+    module("values")
+
+    test("values should return an empty list for an empty dictionary", function() {
+        var dict = {};
+        var values = webster.values(dict);
+        deepEqual(values, []);
+    })
+
+    test("values should return all the values", function() {
+        var dict = { 'a': 'b', 'c': 'd' };
+        var values = webster.values(dict);
+        deepEqual(values, ['b', 'd']);
+    })
 })
