@@ -9,7 +9,7 @@ var each = webster.each = function(dict, fn, context) {
     else if (fn == undefined) return;
     else if (context != undefined) return each(dict, fn.bind(context));
 
-    for (key in dict) {
+    for (var key in dict) {
         if (dict.hasOwnProperty(key)) {
             fn(key, dict[key]);
         }
@@ -18,7 +18,7 @@ var each = webster.each = function(dict, fn, context) {
 
 var map = webster.map = function(dict, fn, context) {
     if (context != undefined) return map(dict, fn.bind(context));
-    mapped = {};
+    var mapped = {};
 
     each(dict, function(key, value) {
         var result = fn(key, value)
