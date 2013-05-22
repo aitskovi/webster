@@ -39,14 +39,14 @@ var foldl = webster.foldl = function(dict, start, fn, context) {
     return accumulator;
 }
 
-webster.keys = function(dict) {
+var keys = webster.keys = function(dict) {
     return foldl(dict, [], function(key, value, accumulator) {
         accumulator.push(key);
         return accumulator;
     });
 }
 
-webster.values = function(dict) {
+var values = webster.values = function(dict) {
     return foldl(dict, [], function(key, value, accumulator) {
         accumulator.push(value);
         return accumulator;
