@@ -34,10 +34,9 @@ $(function () {
     });
 
     test("each shouldn't iterate prototype properties", function() {
-        // TODO(Avi Itskovich): Fix this later
-        /*
-        function Parent() { this.parent = 'parent' };
-        var dict = new Parent();
+        function Dictionary() { };
+        Dictionary.prototype.value = 'value';
+        var dict = new Dictionary();
         dict['child'] = 'child';
 
         var result = [];
@@ -47,6 +46,5 @@ $(function () {
         });
 
         deepEqual(result, ["child", "child"]);
-        */
     })
 })
