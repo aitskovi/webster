@@ -4,7 +4,7 @@ $(function () {
     test("map should create dictionary", function() {
         var dict = { 'a':'b', 'c':'d' };
         var result = webster.map(dict, function(key, value) {
-            return {'key': key, 'value': value};
+            return [key, value];
         });
         
         deepEqual(result, dict);
@@ -13,7 +13,7 @@ $(function () {
     test("map should return empty for empty dictionary", function() {
         var dict = {};
         var result = webster.map(dict, function(key, value) {
-            return { 'key': key, 'value': value };
+            return [key, value];
         });
 
         deepEqual(result, dict);
@@ -23,7 +23,7 @@ $(function () {
         var context = { 'append' : 'a' };
         var dict = { 'a': 'b', 'c': 'd' };
         var result = webster.map(dict, function(key, value) {
-            return { key: key, value: value + this.append };
+            return [key, value + this.append];
         }, context);
 
         var expectedResult = { 'a': 'ba', 'c': 'da' };

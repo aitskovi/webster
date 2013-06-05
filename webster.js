@@ -22,7 +22,7 @@ var map = webster.map = function(dict, fn, context) {
 
     each(dict, function(key, value) {
         var result = fn(key, value)
-        mapped[result.key] = result.value;
+        mapped[result[0]] = result[1];
     });
 
     return mapped;
