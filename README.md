@@ -14,7 +14,7 @@ Want to map a dictionary of objects into another dictionary? It's as easy as:
 
 # Why?
 
-Although libraries like undrescore.js support some of these primitives, they're mostly focused on lists. There is no way to map a dictionary to a dictionary in underscore, instead a dictionary becomes an array. Webster, gives you an easy way to manage dictionaries when you need to.
+Although libraries like underscore.js supports some of these primitives, they're mostly focused on lists. There is no way to map a dictionary to a dictionary in underscore, instead a dictionary becomes an array. Webster gives you an easy way to manage dictionaries when you need to.
 
 # Documentation
 
