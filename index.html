@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Webster by aitskovi</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Webster</h1>
+        <p>A functional utility belt for dictionaries.</p>
+
+        <p class="view"><a href="https://github.com/aitskovi/webster">View the Project on GitHub <small>aitskovi/webster</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/aitskovi/webster/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/aitskovi/webster/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/aitskovi/webster">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>A functional utility belt for dictionaries. This set of utilities allows you to operate on dictionaries with the same ease you operated on lists with underscore.js</p>
+
+<h1>
+<a name="quick-example" class="anchor" href="#quick-example"><span class="octicon octicon-link"></span></a>Quick Example</h1>
+
+<p>Want to map a dictionary of objects into another dictionary? It's as easy as:</p>
+
+<pre><code>webster.map({'a': 0, 'b': 1},  function(key, value) {
+    return [key, value + 1];
+});
+</code></pre>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<pre><code>&lt;script type="text/javascript" src="webster.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<h1>
+<a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Why?</h1>
+
+<p>Although libraries like underscore.js supports some of these primitives, they're mostly focused on lists. There is no way to map a dictionary to a dictionary in underscore, instead a dictionary becomes an array. Webster gives you an easy way to manage dictionaries when you need to.</p>
+
+<h1>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h1>
+
+<h2>
+<a name="iteration" class="anchor" href="#iteration"><span class="octicon octicon-link"></span></a>Iteration</h2>
+
+<p><strong>each</strong> <em>webster.each(dict, iterator, [context])</em></p>
+
+<p>Iterates over a list of (key, value) pairs contained in the dictionary. Each key, value pair is submitted to the iterator function. Each invocation of iterator has two arguments key and value. A context may also be passed in to bind to the iterator function.</p>
+
+<h2>
+<a name="transformations" class="anchor" href="#transformations"><span class="octicon octicon-link"></span></a>Transformations</h2>
+
+<p><strong>map</strong> <em>webster.map(dict, iterator, [context])</em></p>
+
+<p>Produces a new dictionary of values by mapping each (key, value) pair in the dictionary through the iterator function. The iterator function recieves key and value arguments and must return a two element [key, value] list.</p>
+
+<p><strong>keys</strong> <em>webster.keys(dict)</em></p>
+
+<p>Prodcues the keys associated with the dictionary.</p>
+
+<p><strong>values</strong> <em>webster.values(dict)</em></p>
+
+<p>Produces the values associated with the dictionary.</p>
+
+<h2>
+<a name="folds" class="anchor" href="#folds"><span class="octicon octicon-link"></span></a>Folds</h2>
+
+<p><strong>foldl</strong> <em>webster.foldl(dict, accumulator, iterator, [context])</em></p>
+
+<p>Foldl converts a list of values into a single value by folding over the dictionary from left to right. Accumulator is the initial state of the result, and each succesive step of the fold modifies it. Its final value is returned by foldl. Each iteration is given a key, a value and the accumulator so far.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/aitskovi">aitskovi</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
