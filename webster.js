@@ -5,9 +5,9 @@ var root = this;
 var webster = root.webster = {};
 
 var each = webster.each = function(dict, fn, context) {
-    if (dict == undefined) return;
-    else if (fn == undefined) return;
-    else if (context != undefined) return each(dict, fn.bind(context));
+    if (dict === undefined) return;
+    else if (fn === undefined) return;
+    else if (context !== undefined) return each(dict, fn.bind(context));
 
     for (var key in dict) {
         if (dict.hasOwnProperty(key)) {
@@ -17,7 +17,7 @@ var each = webster.each = function(dict, fn, context) {
 }
 
 var map = webster.map = function(dict, fn, context) {
-    if (context != undefined) return map(dict, fn.bind(context));
+    if (context !== undefined) return map(dict, fn.bind(context));
     var mapped = {};
 
     each(dict, function(key, value) {
@@ -29,7 +29,7 @@ var map = webster.map = function(dict, fn, context) {
 }
 
 var foldl = webster.foldl = function(dict, start, fn, context) {
-    if (context != undefined) return foldl(dict, start, fn.bind(context));
+    if (context !== undefined) return foldl(dict, start, fn.bind(context));
     var accumulator = start;
 
     each(dict, function(key, value) {
