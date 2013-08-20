@@ -39,6 +39,20 @@ var foldl = webster.foldl = function(dict, start, fn, context) {
     return accumulator;
 }
 
+var foldr = webster.foldr = function(dict, start, fn, context) {
+    if (context !== undefined) return foldl(dict, start, fn.bind(context));
+    var rest = start;
+
+    var keys = webster.keys(dict);
+
+    for (var i = keys.length  - 1; i >= 0; --i) {
+        var key = keys[i];
+        rest = fn(key, dict[key], rest);
+    }
+
+    return rest;
+}
+
 var keys = webster.keys = function(dict) {
     return foldl(dict, [], function(key, value, accumulator) {
         accumulator.push(key);

@@ -34,4 +34,39 @@ $(function () {
 
         equal(result, "success");
     })
+
+    module("foldr")
+
+    test("foldr on empty list should return default", function() {
+        var dict = {};
+        var modified = false;
+        var start = true;
+        var result = webster.foldr(dict, start, function(key, value, rest) {
+            modified = true;
+        });
+
+        equal(modified, false);
+        equal(result, start);
+    })
+
+    test("foldr should fold from the right", function() {
+        var dict = {'a': 1, 'b': 2, 'c': 3};
+        var result = webster.foldr(dict, [], function(key, value, rest) {
+            rest.push(key);
+            rest.push(value);
+            return rest;
+        });
+
+        deepEqual(result, ['c', 3, 'b', 2, 'a', 1]);
+    })
+
+    test("foldr should accept a context", function() {
+        var context = {'value': 'success'};
+        var dict = {'a': 1, 'b': 2};
+        var result = webster.foldl(dict, null, function(key, value, rest) {
+            return this.value;
+        }, context);
+
+        equal(result, "success");
+    })
 })
