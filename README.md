@@ -43,3 +43,7 @@ Produces the values associated with the dictionary.
 __foldl__ _webster.foldl(dict, accumulator, iterator, [context])_
 
 Foldl converts a list of values into a single value by folding over the dictionary from left to right. Accumulator is the initial state of the result, and each succesive step of the fold modifies it. Its final value is returned by foldl. Each iteration is given a key, a value and the accumulator so far.
+
+__foldr__ _webster.foldr(dict, rest, iterator, [context])_
+
+Foldr converts a list of values in a single value by folding over the dictionary from right to left. Rest is the initial state of the result, and each succesive step of the fold modifies it. Its final value is returned by foldr. Each iteration is given a key, a value and the value of rest so far.
