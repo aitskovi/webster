@@ -30,6 +30,49 @@ $(function () {
         deepEqual(result, expectedResult);
     })
 
+    module("filter")
+
+    test("filter should create a dictionary", function() {
+        var dict = {'a': 'b', 'c': 'd'};
+
+        var result = webster.filter(dict, function(key, value) {
+            return true;
+        });
+
+        deepEqual(result, dict);
+    })
+
+    test("filter should return empty for empty dictionary", function() {
+        var dict = {'a': 'b', 'c': 'd'};
+
+        var result = webster.filter(dict, function(key, value) {
+            return false;
+        });
+
+        deepEqual(result, {});
+    })
+
+    test("filter should filter correct values", function() {
+        var dict = {'a': 'b', 'c': 'd'};
+
+        var result = webster.filter(dict, function(key, value) {
+            return key === 'a';
+        });
+
+        deepEqual(result, {'a': 'b'});
+    })
+
+    test("filter should accept and use context", function() {
+        var context = { 'filter' : 'a' };
+        var dict = { 'a': 'b', 'c': 'd' };
+        var result = webster.filter(dict, function(key, value) {
+            return this.filter === key;
+        }, context);
+
+        var expectedResult = {'a': 'b'};
+        deepEqual(result, expectedResult);
+    })
+
     module("keys")
 
     test("keys should return an empty list for an empty dictionary", function() {

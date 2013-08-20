@@ -28,6 +28,19 @@ var map = webster.map = function(dict, fn, context) {
     return mapped;
 }
 
+var filter = webster.filter = function(dict, fn, context) {
+    if (context !== undefined) return filter(dict, fn.bind(context));
+    var filtered = {};
+
+    each(dict, function(key, value) {
+        if (fn(key, value)) {
+            filtered[key] = value;
+        }
+    });
+
+    return filtered;
+}
+
 var foldl = webster.foldl = function(dict, start, fn, context) {
     if (context !== undefined) return foldl(dict, start, fn.bind(context));
     var accumulator = start;
